@@ -1,4 +1,4 @@
-const Entrada = require("./entrada.js")
+const Entrada = require("../src/entrada.js")
 
 describe('Crear y comrpar entradas//Gestion de entradas', () => {
 
