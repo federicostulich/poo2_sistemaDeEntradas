@@ -23,4 +23,11 @@ describe('Gestion de usuarios', () => {
         expect(usuario.esSocio).toBe(true);
     })
 
+    test('Asociar un usuario', ()=> {
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1))
+        expect(usuario.esSocio).toBe(false);
+        usuario.asociar();
+        expect(usuario.esSocio).toBe(true);
+    })
+
 })
