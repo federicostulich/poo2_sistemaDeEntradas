@@ -43,4 +43,10 @@ describe('Gestion de usuarios', () => {
         expect(usuario.asociar).toThrow(new Error("El usuario ya es socio."));
     })
 
+    test('No es posible desasociar un usuario que no es socio', ()=> {
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1))
+        expect(usuario.esSocio).toBe(false);
+        expect(usuario.desasociar).toThrow(new Error("El usuario no es socio."));
+    })
+
 })

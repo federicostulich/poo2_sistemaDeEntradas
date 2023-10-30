@@ -12,7 +12,12 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
         this.esSocio = true;
     }
 
-    this.desasociar = () => this.esSocio = false;
+    this.desasociar = () => {
+        if(!this.esSocio){
+            throw new Error("El usuario no es socio.");
+        }
+        this.esSocio = false;
+    }
     
 }
 
