@@ -11,6 +11,7 @@ describe('Gestion de usuarios', () => {
         expect(usuario.apellido).toBe("Gonzalez")
         expect(usuario.dni).toBe("35111222")
         expect(usuario.fechaNacimiento).toEqual(new Date(1990, 0, 1))
+        expect(usuario.esSocio).toBe(false)
     })
 
 })

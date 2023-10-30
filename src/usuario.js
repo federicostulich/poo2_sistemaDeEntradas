@@ -3,7 +3,7 @@ function Usuario(nombre,apellido, dni, fechaNacimiento) {
     this.apellido = apellido;
     this.dni = dni;
     this.fechaNacimiento = fechaNacimiento;
-
+    this.esSocio = false;
     
 }
 
