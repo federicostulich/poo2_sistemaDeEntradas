@@ -13,15 +13,11 @@ function Entrada(precio,ubicacion) {
     }
 
     this.validarDisponibilidad = () => {
-        if(!this.estaDisponible) {
-            throw new Error('No esta disponible')
-        }
+        if(!this.estaDisponible) throw new Error('No esta disponible')
     }
 
     this.validarComprador = (comprador) => {
-        if(!comprador) {
-            throw new Error("Necesita informacion del comprador")
-        }
+        if(!comprador) throw new Error("Necesita informacion del comprador")
     }
     
 }
