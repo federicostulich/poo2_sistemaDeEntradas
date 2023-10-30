@@ -9,7 +9,7 @@ describe('Calcular precio de entrada segun tipo de usuario', () => {
         const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1));
         entrada.comprar(usuario);
         expect(entrada.precio).toBe(100);
-        expect(entrada.calcularPrecio()).toBe(100);
+        expect(entrada.calcularPrecioFinal()).toBe(100);
     })
 
 })

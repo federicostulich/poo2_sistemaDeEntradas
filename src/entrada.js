@@ -22,7 +22,7 @@ function Entrada(precio,ubicacion) {
         if(!comprador) throw new Error("Necesita informacion del comprador");
     };
 
-    this.calcularPrecio = () => this.precio;
+    this.calcularPrecioFinal = () => this.precio;
     
 }
 
