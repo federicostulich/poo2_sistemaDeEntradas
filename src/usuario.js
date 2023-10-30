@@ -6,9 +6,7 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
     this.esSocio = esSocio;
 
     this.asociar = () => {
-        if(this.esSocio){
-            throw new Error("El usuario ya es socio.");
-        }
+        this.validarQueEsSocio();
         this.esSocio = true;
     }
 
@@ -17,6 +15,12 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
             throw new Error("El usuario no es socio.");
         }
         this.esSocio = false;
+    }
+
+    this.validarQueEsSocio = () => {
+        if(this.esSocio){
+            throw new Error("El usuario ya es socio.");
+        }
     }
     
 }
