@@ -37,4 +37,10 @@ describe('Gestion de usuarios', () => {
         expect(usuario.esSocio).toBe(false);
     })
 
+    test('No es posible asociar un usuario que ya es socio', ()=> {
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), true)
+        expect(usuario.esSocio).toBe(true);
+        expect(usuario.asociar).toThrow(new Error("El usuario ya es socio."));
+    })
+
 })
