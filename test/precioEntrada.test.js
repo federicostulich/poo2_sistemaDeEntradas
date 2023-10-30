@@ -22,4 +22,9 @@ describe('Calcular precio de entrada segun tipo de usuario', () => {
         expect(entrada.calcularPrecioFinal()).toBe(80);
     });
 
+    test('No es posible calcular el precio final de una entrada si no fue comprada por un usuario', ()=> {
+        const entrada = new Entrada(100,25);
+        expect(entrada.calcularPrecioFinal).toThrow(new Error("La entrada no tiene un usuario asociado."));
+    });
+
 });

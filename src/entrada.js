@@ -23,6 +23,7 @@ function Entrada(precio,ubicacion) {
     };
 
     this.calcularPrecioFinal = () => {
+        if (this.comprador === null) throw new Error("La entrada no tiene un usuario asociado.")
         if (this.comprador.esSocio) return this.precio * 0.8;
         return this.precio;
     }
