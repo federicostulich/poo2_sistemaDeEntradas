@@ -22,8 +22,10 @@ function Entrada(precio,ubicacion) {
         if(!comprador) throw new Error("Necesita informacion del comprador");
     };
 
-    this.calcularPrecioFinal = () => this.precio;
-    
+    this.calcularPrecioFinal = () => {
+        if (this.comprador.esSocio) return this.precio * 0.8;
+        return this.precio;
+    }
 }
 
 module.exports = Entrada;
