@@ -14,4 +14,13 @@ describe('Gestion de usuarios', () => {
         expect(usuario.esSocio).toBe(false)
     })
 
+    test('Crear un usuario que es socio', ()=> {
+        const usuario = new Usuario("Matias",
+                                    "Gonzalez",
+                                    "35111222",
+                                    new Date(1990, 0, 1),
+                                    true)
+        expect(usuario.esSocio).toBe(true);
+    })
+
 })
