@@ -30,4 +30,11 @@ describe('Gestion de usuarios', () => {
         expect(usuario.esSocio).toBe(true);
     })
 
+    test('Desasociar un usuario', ()=> {
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), true)
+        expect(usuario.esSocio).toBe(true);
+        usuario.desasociar();
+        expect(usuario.esSocio).toBe(false);
+    })
+
 })

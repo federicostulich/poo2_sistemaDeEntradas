@@ -6,6 +6,8 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
     this.esSocio = esSocio;
 
     this.asociar = () => this.esSocio = true;
+
+    this.desasociar = () => this.esSocio = false;
     
 }
 
