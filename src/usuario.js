@@ -11,15 +11,19 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
     }
 
     this.desasociar = () => {
-        if(!this.esSocio){
-            throw new Error("El usuario no es socio.");
-        }
+        this.validarQueNoEsSocio();
         this.esSocio = false;
     }
 
     this.validarQueEsSocio = () => {
         if(this.esSocio){
             throw new Error("El usuario ya es socio.");
+        }
+    }
+
+    this.validarQueNoEsSocio = () => {
+        if(!this.esSocio){
+            throw new Error("El usuario no es socio.");
         }
     }
     
