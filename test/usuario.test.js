@@ -1,3 +1,4 @@
+"use strict";
 const Usuario = require("../src/usuario.js")
 
 describe('Gestion de usuarios', () => {

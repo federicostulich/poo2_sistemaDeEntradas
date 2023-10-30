@@ -1,3 +1,5 @@
+"use strict";
+
 function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
     this.nombre = nombre;
     this.apellido = apellido;

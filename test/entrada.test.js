@@ -1,3 +1,4 @@
+"use strict";
 const Entrada = require("../src/entrada.js")
 const Usuario = require("../src/usuario.js")
 

@@ -1,3 +1,5 @@
+"use strict";
+
 function Entrada(precio,ubicacion) {
     this.precio = precio;
     this.ubicacion = ubicacion;
