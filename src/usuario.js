@@ -1,30 +1,40 @@
 "use strict";
 
-function Usuario(nombre,apellido, dni, fechaNacimiento, esSocio = false) {
+const Socio = require("../src/socio.js")
+const NoSocio = require("../src/noSocio.js")
+
+function Usuario(nombre,apellido, dni, fechaNacimiento, membresia = new NoSocio()) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;
     this.fechaNacimiento = fechaNacimiento;
-    this.esSocio = esSocio;
+    this.membresia = membresia;
 
     this.asociar = () => {
         this.validarQueEsSocio();
-        this.esSocio = true;
+        this.membresia = new Socio();
     };
 
     this.desasociar = () => {
         this.validarQueNoEsSocio();
-        this.esSocio = false;
+        this.membresia = new NoSocio();
     };
 
     this.validarQueEsSocio = () => {
-        if(this.esSocio) throw new Error("El usuario ya es socio.");
+        this.membresia.validarQueEsSocio()
     };
 
     this.validarQueNoEsSocio = () => {
-        if(!this.esSocio) throw new Error("El usuario no es socio.");
+        this.membresia.validarQueNoEsSocio()
     };
-    
+
+    this.obtenerDescuento = () => {
+        return this.membresia.descuento;
+    }
+
+    this.esSocio = () => {
+        return this.membresia.esSocio
+    }
 }
 
 module.exports = Usuario;

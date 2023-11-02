@@ -1,10 +1,12 @@
 "use strict";
 
+const SinComprador = require("./sinComprador.js")
+
 function Entrada(precio,ubicacion) {
     this.precio = precio;
     this.ubicacion = ubicacion;
     this.estaDisponible = true;
-    this.comprador = null;
+    this.comprador = new SinComprador();
 
     this.comprar = (comprador) => {
         this.validarDisponibilidad();
@@ -23,9 +25,7 @@ function Entrada(precio,ubicacion) {
     };
 
     this.calcularPrecioFinal = () => {
-        if (this.comprador === null) throw new Error("La entrada no tiene un usuario asociado.")
-        if (this.comprador.esSocio) return this.precio * 0.8;
-        return this.precio;
+        return this.precio * this.comprador.obtenerDescuento()
     }
 }
 
