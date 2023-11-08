@@ -7,6 +7,7 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, membresia = new NoSocio(
 
     
     if(membresia.esSocio && atributosSocio[0] == undefined) throw new Error("Los socios necesitan un numero de tarjeta."); 
+    if(membresia.esSocio && atributosSocio[1] == undefined) throw new Error("Los socios necesitan una direccion."); 
 
     this.nombre = nombre;
     this.apellido = apellido;
@@ -17,11 +18,13 @@ function Usuario(nombre,apellido, dni, fechaNacimiento, membresia = new NoSocio(
     this.direccion = atributosSocio[1];
 
     this.asociar = () => {
+        //#TODO: Agregar informacion de tarjeta y direccion.
         this.validarQueEsSocio();
         this.membresia = new Socio();
     };
 
     this.desasociar = () => {
+        //#TODO: Borrar informacion de tarjeta y direccion.
         this.validarQueNoEsSocio();
         this.membresia = new NoSocio();
     };

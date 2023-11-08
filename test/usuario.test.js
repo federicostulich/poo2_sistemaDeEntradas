@@ -37,14 +37,14 @@ describe('Gestion de usuarios', () => {
     });
 
     test('Desasociar un usuario', ()=> {
-        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(), "123456");
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(), "123456", "Libertador 123");
         expect(usuario.esSocio()).toBe(true);
         usuario.desasociar();
         expect(usuario.esSocio()).toBe(false);
     });
 
     test('No es posible asociar un usuario que ya es socio', ()=> {
-        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(),"123456");
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(),"123456", "Libertador 123");
         expect(usuario.esSocio()).toBe(true);
         expect(usuario.asociar).toThrow(new Error("El usuario ya es socio."));
     });
@@ -58,5 +58,10 @@ describe('Gestion de usuarios', () => {
     test('No es posible crear socio sin tarjeta', ()=> {
         const creacionUsuario = () => new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio());
         expect(creacionUsuario).toThrow(new Error("Los socios necesitan un numero de tarjeta."));
+    });
+
+    test('No es posible crear socio sin direccion', ()=> {
+        const creacionUsuario = () => new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(), "123456");
+        expect(creacionUsuario).toThrow(new Error("Los socios necesitan una direccion."));
     });
 });
