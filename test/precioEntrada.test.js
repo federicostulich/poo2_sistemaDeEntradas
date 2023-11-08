@@ -16,7 +16,7 @@ describe('Calcular precio de entrada segun tipo de usuario', () => {
 
     test('Precio de entrada tiene un 20 porciento de descuento cuando el usuario es socio', ()=> {
         const entrada = new Entrada(100,25);
-        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio());
+        const usuario = new Usuario("Matias", "Gonzalez", "35111222", new Date(1990, 0, 1), new Socio(), "123456");
         entrada.comprar(usuario);
         expect(usuario.esSocio()).toBe(true);
         expect(entrada.precio).toBe(100);

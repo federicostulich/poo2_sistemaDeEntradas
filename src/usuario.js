@@ -3,12 +3,18 @@
 const Socio = require("../src/socio.js")
 const NoSocio = require("../src/noSocio.js")
 
-function Usuario(nombre,apellido, dni, fechaNacimiento, membresia = new NoSocio()) {
+function Usuario(nombre,apellido, dni, fechaNacimiento, membresia = new NoSocio(), ...atributosSocio) {
+
+    
+    if(membresia.esSocio && atributosSocio[0] == undefined) throw new Error("Los socios necesitan un numero de tarjeta."); 
+
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;
     this.fechaNacimiento = fechaNacimiento;
     this.membresia = membresia;
+    this.tarjeta = atributosSocio[0];
+    this.direccion = atributosSocio[1];
 
     this.asociar = () => {
         this.validarQueEsSocio();
